@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+    <record id="product_product_form_view_inherit_custom" model="ir.ui.view">
+        <field name="name">product.product.form.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <field name="uom_id" position="after">
+                <field name="commission_price_product" string="Commission Price" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="product_template_form_view_inherit_custom" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml"> 
+            <field name="uom_id" position="before">
+                <field name="commission_price_template" string="Commission Price" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+            </field>
+        </field>
+    </record>
+</openerp>
